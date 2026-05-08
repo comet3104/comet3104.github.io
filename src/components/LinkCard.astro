@@ -1,3 +1,26 @@
+---
+interface Props {
+	href: string;
+	image: string;
+	title: string;
+	description: string;
+}
+
+const { href, image, title, description } = Astro.props;
+---
+
+<a class="link-card" href={href} target="_blank" rel="noopener noreferrer">
+	<div class="link-card-image-wrap">
+		<img class="link-card-image" src={image} alt={title} loading="lazy" />
+	</div>
+
+	<div class="link-card-body">
+		<p class="link-card-title">{title}</p>
+		<p class="link-card-description">{description}</p>
+		<p class="link-card-url">{href}</p>
+	</div>
+</a>
+
 <style>
 	.link-card {
 		display: grid;
@@ -16,5 +39,64 @@
 			box-shadow 0.18s ease,
 			border-color 0.18s ease;
 		box-shadow: 0 8px 24px rgba(60, 40, 10, 0.04);
+	}
+
+	.link-card:hover {
+		transform: translateY(-2px);
+		border-color: #d8cfbd;
+		box-shadow: 0 14px 30px rgba(60, 40, 10, 0.08);
+	}
+
+	.link-card-image-wrap {
+		overflow: hidden;
+		border-radius: 14px;
+		background: #f1ece2;
+		min-height: 120px;
+	}
+
+	.link-card-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.link-card-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-width: 0;
+	}
+
+	.link-card-title {
+		margin: 0 0 0.3rem 0;
+		font-size: 1.05rem;
+		font-weight: 700;
+		line-height: 1.4;
+		color: #2e2a24;
+	}
+
+	.link-card-description {
+		margin: 0 0 0.45rem 0;
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: #635d53;
+	}
+
+	.link-card-url {
+		margin: 0;
+		font-size: 0.82rem;
+		color: #8a8276;
+		word-break: break-all;
+	}
+
+	@media (max-width: 720px) {
+		.link-card {
+			grid-template-columns: 1fr;
+		}
+
+		.link-card-image-wrap {
+			min-height: 190px;
+		}
 	}
 </style>
