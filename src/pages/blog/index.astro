@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
@@ -115,9 +114,10 @@ const posts = (await getCollection('blog')).sort(
 						posts.map((post) => (
 							<li class="post-card">
 								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={405} src={post.data.heroImage} alt="" />
-									)}
+									<img
+										src="public/images/default-thumbnail.jpg"
+										alt={post.data.title}
+									/>
 									<div class="post-card-content">
 										<div class="post-meta">
 											<span class="post-category">{post.data.category}</span>
