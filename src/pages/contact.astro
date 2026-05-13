@@ -1,0 +1,207 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`Contact | ${SITE_TITLE}`} description="Contact page" />
+		<style>
+			main {
+				width: min(860px, 100%);
+			}
+
+			.contact-page {
+				display: grid;
+				gap: 2rem;
+			}
+
+			.page-heading {
+				display: grid;
+				gap: 0.75rem;
+			}
+
+			.page-heading h1 {
+				margin: 0;
+				font-size: clamp(2.2rem, 5vw, 3.2rem);
+				line-height: 1.1;
+				color: rgb(var(--black));
+			}
+
+			.page-heading p {
+				margin: 0;
+				line-height: 1.8;
+				color: #4f4f4f;
+			}
+
+			.section-card {
+				background: #ffffff;
+				border: 1px solid #e3dfd4;
+				border-radius: 16px;
+				padding: 1.25rem;
+			}
+
+			.section-card h2 {
+				margin: 0 0 1rem;
+				font-size: 1.2rem;
+				color: rgb(var(--black));
+			}
+
+			.social-links {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+
+.social-links li {
+	margin: 0;
+}
+
+			.social-links a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 48px;
+				height: 48px;
+				border: 1px solid #d8d2c4;
+				border-radius: 999px;
+				background: #fff;
+				color: #222;
+				text-decoration: none;
+			}
+
+
+			.social-links a:hover {
+				border-color: currentColor;
+			}
+
+			.contact-form {
+				display: grid;
+				gap: 1rem;
+			}
+
+			.form-group {
+				display: grid;
+				gap: 0.45rem;
+			}
+
+			label {
+				font-size: 0.95rem;
+				color: rgb(var(--black));
+			}
+
+			input,
+			textarea {
+				width: 100%;
+				box-sizing: border-box;
+				padding: 0.85rem 1rem;
+				border: 1px solid #d8d2c4;
+				border-radius: 12px;
+				background: #fff;
+				font: inherit;
+				color: inherit;
+			}
+
+			textarea {
+				min-height: 180px;
+				resize: vertical;
+			}
+
+			button {
+				width: fit-content;
+				padding: 0.8rem 1.1rem;
+				border: 1px solid #d8d2c4;
+				border-radius: 999px;
+				background: #fff;
+				font: inherit;
+				cursor: pointer;
+			}
+
+			button:hover {
+				background: #f8f6f0;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="contact-page">
+				<section class="page-heading">
+					<h1>Contact</h1>
+					<p>
+						ご連絡はSNSまたはフォームからお願いします。
+					</p>
+				</section>
+
+				<section class="section-card">
+	<h2>SNS</h2>
+	<ul class="social-links">
+		<li>
+			<a
+				href="https://github.com/comet3104"
+				target="_blank"
+				rel="noreferrer"
+				aria-label="GitHub"
+			>
+				<img src="/icons/github.svg" alt="" />
+				<span class="sr-only">GitHub</span>
+			</a>
+		</li>
+		<li>
+			<a
+				href="https://x.com/satoshi_okome?s=21"
+				target="_blank"
+				rel="noreferrer"
+				aria-label="X"
+			>
+				<img src="/icons/x.svg" alt="" />
+				<span class="sr-only">X</span>
+			</a>
+		</li>
+		<li>
+			<a
+				href="https://www.instagram.com/satoshi_okome?igsh=MTk1cDIwOXo3ZjV5Nw%3D%3D&utm_source=qr"
+				target="_blank"
+				rel="noreferrer"
+				aria-label="Instagram"
+			>
+				<img src="/icons/instagram.svg" alt="" />
+				<span class="sr-only">Instagram</span>
+			</a>
+		</li>
+	</ul>
+</section>
+
+				<section class="section-card">
+					<h2>Message</h2>
+					<form class="contact-form">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input id="name" name="name" type="text" />
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input id="email" name="email" type="email" />
+						</div>
+
+						<div class="form-group">
+							<label for="message">Message</label>
+							<textarea id="message" name="message"></textarea>
+						</div>
+
+						<button type="submit">Send</button>
+					</form>
+				</section>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
